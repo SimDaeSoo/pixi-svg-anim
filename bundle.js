@@ -20577,32 +20577,79 @@ exports.default = CountLimiter;
 /* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(PIXI) {var app = new PIXI.Application();
+/* WEBPACK VAR INJECTION */(function(PIXI) {var { SVGActor } = __webpack_require__(193);
+
+var app = new PIXI.Application();
 
 document.body.appendChild(app.view);
 
+var actors = [];
+
 // load SVG into a PIXI tree
-var RobotSVG = __webpack_require__(191);
-var robot = new RobotSVG();
+var robotSVG = __webpack_require__(191);
 
-robot.x = app.view.width/2 - robot.width/2;
-robot.y = app.view.height/2 - robot.height/2;
+var robot1 = new SVGActor(robotSVG, {
+  idle: {
+    head: {
+      lpupil: {
+        rotation: ({t}) => t*0.005
+      },
+      rpupil: {
+        rotation: ({t}) => t*0.005
+      },
+      rotation: ({t}) => 0.1*Math.sin(t*0.001)
+    },
+    lleg: {
+      y: ({t, original}) => original + 10*Math.sin(t*0.01)
+    },
+    rleg: {
+      y: ({t, original}) => original + 10*Math.cos(t*0.01)
+    }
 
-// make it relative later
-robot.lleg.original_y = robot.lleg.y;
-robot.rleg.original_y = robot.rleg.y;
+  }
+}, {
+  x: app.view.width/4,
+  y: app.view.height/3
+});
+
+app.stage.addChild(robot1);
+actors.push(robot1);
+
+
+var robot2 = new SVGActor(robotSVG, {
+  idle: {
+    head: {
+      lpupil: {
+        x: ({t, original}) => original+10*Math.sin(t*0.005)-10
+      },
+      rpupil: {
+        x: ({t, original}) => original-10*Math.sin(t*0.005)-10
+      },
+      y: ({t, original}) => original+10*Math.sin(t*0.003)
+    },
+    lleg: {
+      rotation: ({t}) => 0.2*Math.sin(t*0.01)
+    },
+    rleg: {
+      rotation: ({t}) => 0.2*Math.sin(t*0.01)
+    }
+
+  }
+}, {
+  x: 3*app.view.width/4,
+  y: app.view.height/3
+});
+
+app.stage.addChild(robot2);
+actors.push(robot2);
+
 
 // Render loop
 function gameLoop(t) {
   requestAnimationFrame(gameLoop);
-  robot.head.lpupil.rotation = t*0.005;
-  robot.head.rpupil.rotation = t*0.005;
-  robot.head.rotation = 0.1*Math.sin(t*0.001);
 
-  robot.lleg.y = robot.lleg.original_y + 10*Math.sin(t*0.01);
-  robot.rleg.y = robot.rleg.original_y + 10*Math.cos(t*0.01);
+  actors.forEach(a => a.update(t));
 
-  app.renderer.render(robot);
 }
 gameLoop();
 
@@ -41494,6 +41541,8 @@ child_8.anchor.set(0.00,-0.60);
 child_1.position.set(-147.01,-113.02);
 child_2.position.set(-27.17,-68.52);
 child_3.position.set(25.86,-68.52);
+child_4.position.set(110.00,240.13);
+child_5.position.set(-110.00,-240.13);
 child_6.position.set(182.49,237.10);
 child_7.position.set(-182.49,-237.10);
 
@@ -41543,6 +41592,102 @@ module.exports = {
 	svg2baseTexture: svg2baseTexture,
 	inherits: inherits
 };
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(20)))
+
+/***/ }),
+/* 193 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(PIXI) {
+class Actor extends PIXI.Container {
+
+  update (t, delta) {
+  }
+}
+
+const props = [ 'rotation', 'position', 'x', 'y' ];
+
+class SVGActor extends Actor {
+  constructor(Svg, anim, init) {
+    super();
+    this.svg = new Svg();
+    this.svg.pivot.set(this.svg.width/2, this.svg.height/2);
+    this.addChild(this.svg);
+    this.anim = anim;
+    this.changeTo = 'idle';
+
+    if (init) {
+      Object.keys(init).forEach( k => this[k] = init[k] ); // assign?
+    }
+
+    this.defaults = {
+      rotation: this.rotation,
+      position: new PIXI.Point(this.x, this.y)
+    };
+
+    let save_defaults = (thing, defaults, top) => {
+
+      for(var prop in thing) {
+        if (!thing.hasOwnProperty(prop)) continue;
+        if (prop == 'parent') continue;
+        var val = thing[prop];
+        if (val instanceof PIXI.Sprite || val instanceof PIXI.Container) {
+          if (top) this[prop] = val; // copy to this element
+          defaults[prop] = { rotation: val.rotation,
+                             x: val.position.x,
+                             y: val.position.y,
+                             position: new PIXI.Point(val.position.x, val.position.y) }; // TODO: transform, scale etc.
+          console.log(prop);
+          save_defaults(val, defaults[prop]);
+        }
+      }
+    };
+    save_defaults(this.svg, this.defaults, true);
+
+  }
+
+  setState(state) {
+    this.changeTo = state;
+  }
+
+  update(t, delta) {
+
+    if (this.changeTo) {
+      this.state = this.changeTo;
+      this.changeTo = undefined;
+      this.state_start = t;
+    }
+
+    var anim = this.anim[this.state];
+
+    let time_in_state = t-this.state_start;
+
+    if (anim._duration && time_in_state > anim._duration) {
+      this.state = anim.next || 'idle';
+    }
+
+    function doit(anim, prop, thing, defaults) {
+      if (props.indexOf(prop)!==-1) {
+        thing[prop] = anim({ t, state_t: time_in_state, delta, current: thing[prop], original: defaults[prop]});
+      } else {
+        if (!thing[prop]) {
+          console.log("tried to animate "+prop+" of "+thing+" but it has no such part.");
+          return;
+        }
+        Object.keys(anim)
+          .forEach(p => doit(anim[p], p, thing[prop], defaults[prop]));
+      }
+    }
+    Object.keys(anim)
+      .filter(p => p[0]!='_')
+      .forEach(k => {
+        doit(anim[k], k, this, this.defaults);
+      });
+  }
+}
+
+module.exports = { Actor, SVGActor };
+
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(20)))
 
 /***/ })
