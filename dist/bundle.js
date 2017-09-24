@@ -349,7 +349,7 @@ Object.defineProperty(exports, 'WebGLManager', {
   }
 });
 
-var _ObjectRenderer = __webpack_require__(16);
+var _ObjectRenderer = __webpack_require__(17);
 
 Object.defineProperty(exports, 'ObjectRenderer', {
   enumerable: true,
@@ -358,7 +358,7 @@ Object.defineProperty(exports, 'ObjectRenderer', {
   }
 });
 
-var _RenderTarget = __webpack_require__(18);
+var _RenderTarget = __webpack_require__(19);
 
 Object.defineProperty(exports, 'RenderTarget', {
   enumerable: true,
@@ -428,7 +428,7 @@ var _CanvasRenderer = __webpack_require__(11);
 
 var _CanvasRenderer2 = _interopRequireDefault(_CanvasRenderer);
 
-var _WebGLRenderer = __webpack_require__(17);
+var _WebGLRenderer = __webpack_require__(18);
 
 var _WebGLRenderer2 = _interopRequireDefault(_WebGLRenderer);
 
@@ -5255,6 +5255,124 @@ Mesh.DRAW_MODES = {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+/* WEBPACK VAR INJECTION */(function(global) {
+
+exports.__esModule = true;
+exports.loader = exports.prepare = exports.particles = exports.mesh = exports.loaders = exports.interaction = exports.filters = exports.extras = exports.extract = exports.accessibility = undefined;
+
+var _polyfill = __webpack_require__(89);
+
+Object.keys(_polyfill).forEach(function (key) {
+    if (key === "default" || key === "__esModule") return;
+    Object.defineProperty(exports, key, {
+        enumerable: true,
+        get: function get() {
+            return _polyfill[key];
+        }
+    });
+});
+
+var _core = __webpack_require__(0);
+
+Object.keys(_core).forEach(function (key) {
+    if (key === "default" || key === "__esModule") return;
+    Object.defineProperty(exports, key, {
+        enumerable: true,
+        get: function get() {
+            return _core[key];
+        }
+    });
+});
+
+var _deprecation = __webpack_require__(151);
+
+var _deprecation2 = _interopRequireDefault(_deprecation);
+
+var _accessibility = __webpack_require__(152);
+
+var accessibility = _interopRequireWildcard(_accessibility);
+
+var _extract = __webpack_require__(154);
+
+var extract = _interopRequireWildcard(_extract);
+
+var _extras = __webpack_require__(69);
+
+var extras = _interopRequireWildcard(_extras);
+
+var _filters = __webpack_require__(164);
+
+var filters = _interopRequireWildcard(_filters);
+
+var _interaction = __webpack_require__(171);
+
+var interaction = _interopRequireWildcard(_interaction);
+
+var _loaders = __webpack_require__(173);
+
+var loaders = _interopRequireWildcard(_loaders);
+
+var _mesh = __webpack_require__(177);
+
+var mesh = _interopRequireWildcard(_mesh);
+
+var _particles = __webpack_require__(182);
+
+var particles = _interopRequireWildcard(_particles);
+
+var _prepare = __webpack_require__(187);
+
+var prepare = _interopRequireWildcard(_prepare);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// export core
+_core.utils.mixins.performMixins();
+
+/**
+ * Alias for {@link PIXI.loaders.shared}.
+ * @name loader
+ * @memberof PIXI
+ * @type {PIXI.loader.Loader}
+ */
+
+
+// handle mixins now, after all code has been added, including deprecation
+
+
+// export libs
+// import polyfills. Done as an export to make sure polyfills are imported first
+var loader = loaders.shared || null;
+
+exports.accessibility = accessibility;
+exports.extract = extract;
+exports.extras = extras;
+exports.filters = filters;
+exports.interaction = interaction;
+exports.loaders = loaders;
+exports.mesh = mesh;
+exports.particles = particles;
+exports.prepare = prepare;
+exports.loader = loader;
+
+// Apply the deprecations
+
+if (typeof _deprecation2.default === 'function') {
+    (0, _deprecation2.default)(exports);
+}
+
+// Always export PixiJS globally.
+global.PIXI = exports; // eslint-disable-line
+//# sourceMappingURL=index.js.map
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(21)))
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 
 
 exports.__esModule = true;
@@ -5334,7 +5452,7 @@ exports.default = ObjectRenderer;
 //# sourceMappingURL=ObjectRenderer.js.map
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5358,11 +5476,11 @@ var _FilterManager = __webpack_require__(127);
 
 var _FilterManager2 = _interopRequireDefault(_FilterManager);
 
-var _RenderTarget = __webpack_require__(18);
+var _RenderTarget = __webpack_require__(19);
 
 var _RenderTarget2 = _interopRequireDefault(_RenderTarget);
 
-var _ObjectRenderer = __webpack_require__(16);
+var _ObjectRenderer = __webpack_require__(17);
 
 var _ObjectRenderer2 = _interopRequireDefault(_ObjectRenderer);
 
@@ -6151,7 +6269,7 @@ _utils.pluginTarget.mixin(WebGLRenderer);
 //# sourceMappingURL=WebGLRenderer.js.map
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6483,7 +6601,7 @@ exports.default = RenderTarget;
 //# sourceMappingURL=RenderTarget.js.map
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6756,124 +6874,6 @@ function buildNativeLine(graphicsData, webGLData) {
     }
 }
 //# sourceMappingURL=buildLine.js.map
-
-/***/ }),
-/* 20 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(global) {
-
-exports.__esModule = true;
-exports.loader = exports.prepare = exports.particles = exports.mesh = exports.loaders = exports.interaction = exports.filters = exports.extras = exports.extract = exports.accessibility = undefined;
-
-var _polyfill = __webpack_require__(89);
-
-Object.keys(_polyfill).forEach(function (key) {
-    if (key === "default" || key === "__esModule") return;
-    Object.defineProperty(exports, key, {
-        enumerable: true,
-        get: function get() {
-            return _polyfill[key];
-        }
-    });
-});
-
-var _core = __webpack_require__(0);
-
-Object.keys(_core).forEach(function (key) {
-    if (key === "default" || key === "__esModule") return;
-    Object.defineProperty(exports, key, {
-        enumerable: true,
-        get: function get() {
-            return _core[key];
-        }
-    });
-});
-
-var _deprecation = __webpack_require__(151);
-
-var _deprecation2 = _interopRequireDefault(_deprecation);
-
-var _accessibility = __webpack_require__(152);
-
-var accessibility = _interopRequireWildcard(_accessibility);
-
-var _extract = __webpack_require__(154);
-
-var extract = _interopRequireWildcard(_extract);
-
-var _extras = __webpack_require__(69);
-
-var extras = _interopRequireWildcard(_extras);
-
-var _filters = __webpack_require__(164);
-
-var filters = _interopRequireWildcard(_filters);
-
-var _interaction = __webpack_require__(171);
-
-var interaction = _interopRequireWildcard(_interaction);
-
-var _loaders = __webpack_require__(173);
-
-var loaders = _interopRequireWildcard(_loaders);
-
-var _mesh = __webpack_require__(177);
-
-var mesh = _interopRequireWildcard(_mesh);
-
-var _particles = __webpack_require__(182);
-
-var particles = _interopRequireWildcard(_particles);
-
-var _prepare = __webpack_require__(187);
-
-var prepare = _interopRequireWildcard(_prepare);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-// export core
-_core.utils.mixins.performMixins();
-
-/**
- * Alias for {@link PIXI.loaders.shared}.
- * @name loader
- * @memberof PIXI
- * @type {PIXI.loader.Loader}
- */
-
-
-// handle mixins now, after all code has been added, including deprecation
-
-
-// export libs
-// import polyfills. Done as an export to make sure polyfills are imported first
-var loader = loaders.shared || null;
-
-exports.accessibility = accessibility;
-exports.extract = extract;
-exports.extras = extras;
-exports.filters = filters;
-exports.interaction = interaction;
-exports.loaders = loaders;
-exports.mesh = mesh;
-exports.particles = particles;
-exports.prepare = prepare;
-exports.loader = loader;
-
-// Apply the deprecations
-
-if (typeof _deprecation2.default === 'function') {
-    (0, _deprecation2.default)(exports);
-}
-
-// Always export PixiJS globally.
-global.PIXI = exports; // eslint-disable-line
-//# sourceMappingURL=index.js.map
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(21)))
 
 /***/ }),
 /* 21 */
@@ -18411,7 +18411,7 @@ var _CanvasRenderer = __webpack_require__(11);
 
 var _CanvasRenderer2 = _interopRequireDefault(_CanvasRenderer);
 
-var _WebGLRenderer = __webpack_require__(17);
+var _WebGLRenderer = __webpack_require__(18);
 
 var _WebGLRenderer2 = _interopRequireDefault(_WebGLRenderer);
 
@@ -20577,7 +20577,7 @@ exports.default = CountLimiter;
 /* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(PIXI) {var { SVGActor } = __webpack_require__(193);
+/* WEBPACK VAR INJECTION */(function(PIXI) {var { SVGActor } = __webpack_require__(191);
 
 var app = new PIXI.Application();
 
@@ -20586,7 +20586,7 @@ document.body.appendChild(app.view);
 var actors = [];
 
 // load SVG into a PIXI tree
-var robotSVG = __webpack_require__(191);
+var robotSVG = __webpack_require__(192);
 
 var robot1 = new SVGActor(robotSVG, {
   idle: {
@@ -20653,7 +20653,7 @@ function gameLoop(t) {
 }
 gameLoop();
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(20)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(16)))
 
 /***/ }),
 /* 89 */
@@ -24381,11 +24381,11 @@ function mapCanvasBlendModesToPixi() {
 
 exports.__esModule = true;
 
-var _ObjectRenderer2 = __webpack_require__(16);
+var _ObjectRenderer2 = __webpack_require__(17);
 
 var _ObjectRenderer3 = _interopRequireDefault(_ObjectRenderer2);
 
-var _WebGLRenderer = __webpack_require__(17);
+var _WebGLRenderer = __webpack_require__(18);
 
 var _WebGLRenderer2 = _interopRequireDefault(_WebGLRenderer);
 
@@ -25562,7 +25562,7 @@ var _WebGLManager2 = __webpack_require__(12);
 
 var _WebGLManager3 = _interopRequireDefault(_WebGLManager2);
 
-var _RenderTarget = __webpack_require__(18);
+var _RenderTarget = __webpack_require__(19);
 
 var _RenderTarget2 = _interopRequireDefault(_RenderTarget);
 
@@ -26225,7 +26225,7 @@ var _pixiGlCore = __webpack_require__(5);
 
 var _const = __webpack_require__(1);
 
-var _RenderTarget = __webpack_require__(18);
+var _RenderTarget = __webpack_require__(19);
 
 var _RenderTarget2 = _interopRequireDefault(_RenderTarget);
 
@@ -29187,11 +29187,11 @@ var _utils = __webpack_require__(2);
 
 var _const = __webpack_require__(1);
 
-var _ObjectRenderer2 = __webpack_require__(16);
+var _ObjectRenderer2 = __webpack_require__(17);
 
 var _ObjectRenderer3 = _interopRequireDefault(_ObjectRenderer2);
 
-var _WebGLRenderer = __webpack_require__(17);
+var _WebGLRenderer = __webpack_require__(18);
 
 var _WebGLRenderer2 = _interopRequireDefault(_WebGLRenderer);
 
@@ -29652,7 +29652,7 @@ exports.default = PrimitiveShader;
 exports.__esModule = true;
 exports.default = buildPoly;
 
-var _buildLine = __webpack_require__(19);
+var _buildLine = __webpack_require__(20);
 
 var _buildLine2 = _interopRequireDefault(_buildLine);
 
@@ -29743,7 +29743,7 @@ function buildPoly(graphicsData, webGLData, webGLDataNativeLines) {
 exports.__esModule = true;
 exports.default = buildRectangle;
 
-var _buildLine = __webpack_require__(19);
+var _buildLine = __webpack_require__(20);
 
 var _buildLine2 = _interopRequireDefault(_buildLine);
 
@@ -29828,7 +29828,7 @@ var _earcut = __webpack_require__(65);
 
 var _earcut2 = _interopRequireDefault(_earcut);
 
-var _buildLine = __webpack_require__(19);
+var _buildLine = __webpack_require__(20);
 
 var _buildLine2 = _interopRequireDefault(_buildLine);
 
@@ -29985,7 +29985,7 @@ function quadraticBezierCurve(fromX, fromY, cpX, cpY, toX, toY) {
 exports.__esModule = true;
 exports.default = buildCircle;
 
-var _buildLine = __webpack_require__(19);
+var _buildLine = __webpack_require__(20);
 
 var _buildLine2 = _interopRequireDefault(_buildLine);
 
@@ -41508,97 +41508,6 @@ exports.default = TimeLimiter;
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(PIXI) {
-		var common = __webpack_require__(192),
-			svg2baseTexture = common.svg2baseTexture,
-			inherits = common.inherits;
-		var Container = PIXI.Container, Sprite = PIXI.Sprite, Texture = PIXI.Texture, Rect = PIXI.Rectangle;var atlas = svg2baseTexture("<defs id=\"defs4\"></defs><g transform=\"translate(0 -100)\"><g id=\"layer1\"><path style=\"opacity:1;stroke-opacity:1;fill-opacity:1;stroke:none;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-width:10.0;fill:#005eff\" d=\"M23.0 100.51264C23.0 100.51264 269.85715 100.51264 269.85715 100.51264C282.59915 100.51264 292.85715 110.77064 292.85715 123.51264C292.85715 123.51264 292.85715 243.22692 292.85715 243.22692C292.85715 255.96892 282.59915 266.22692 269.85715 266.22692C269.85715 266.22692 23.0 266.22692 23.0 266.22692C10.258 266.22692 0.0 255.96892 0.0 243.22692C0.0 243.22692 0.0 123.51264 0.0 123.51264C0.0 110.77064 10.258 100.51264 23.0 100.51264C23.0 100.51264 23.0 100.51264 23.0 100.51264\" id=\"rect4136\"/><circle style=\"opacity:1;stroke-opacity:1;fill-opacity:1;stroke:none;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-width:9.99999999736;fill:#ff0000\" id=\"path4186\" cx=\"34.194756\" cy=\"227.27061\" r=\"13.131983\"/><circle r=\"13.131983\" cy=\"227.27061\" cx=\"69.045006\" id=\"circle4188\" style=\"opacity:1;stroke-opacity:1;fill-opacity:1;stroke:none;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-width:9.99999999736;fill:#ff0000\"/></g></g><g transform=\"translate(-65 167)\"><rect transform=\"matrix(1.000000,0.000000,0.000000,1.000000,0.000000,0.000000)\" y=\"73.878639\" x=\"131.52882\" height=\"48.216602\" width=\"29.7995\" id=\"rect4164\" style=\"opacity:1;stroke-opacity:1;fill-opacity:1;stroke:none;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-width:9.99999999736;fill:#ffff00\"/><path style=\"opacity:1;stroke-opacity:1;fill-opacity:1;stroke:none;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-width:9.99999999736;fill:#005eff\" d=\"M77.92077 0.0C77.92077 0.0 214.93638 0.0 214.93638 0.0C222.00871 0.0 227.70231 5.6936 227.70231 12.76593C227.70231 12.76593 227.70231 79.21215 227.70231 79.21215C227.70231 86.28448 222.00871 91.97808 214.93638 91.97808C214.93638 91.97808 77.92077 91.97808 77.92077 91.97808C70.84844 91.97808 65.15484 86.28448 65.15484 79.21215C65.15484 79.21215 65.15484 12.76593 65.15484 12.76593C65.15484 5.6936 70.84844 0.0 77.92077 0.0C77.92077 0.0 77.92077 0.0 77.92077 0.0\" id=\"path4139\"/><circle r=\"23.486046\" cy=\"43.977428\" cx=\"120.4607\" id=\"path4156\" style=\"opacity:1;stroke-opacity:1;fill-opacity:1;stroke:none;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-width:9.99999999736;fill:#ffffff\"/><circle style=\"opacity:1;stroke-opacity:1;fill-opacity:1;stroke:none;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-width:9.99999999736;fill:#ffffff\" id=\"circle4158\" cx=\"173.49373\" cy=\"43.977428\" r=\"23.486046\"/></g><g transform=\"translate(87 -56)\"><rect transform=\"matrix(1.000000,0.000000,0.000000,1.000000,-225.618670,-204.706720)\" y=\"428.29099\" x=\"320.75272\" height=\"89.398499\" width=\"29.7995\" id=\"rect4146\" style=\"opacity:1;stroke-opacity:1;fill-opacity:1;stroke:none;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-width:9.99999999736;fill:#6c7793\"/><path id=\"path4141\" d=\"M77.45638 331.1655C77.456377 319.52671 83.665599 308.77202 93.74509 302.95262C103.82458 297.13322 116.24302 297.13322 126.32251 302.95262C136.402 308.77202 142.61122 319.52671 142.61122 331.1655\" style=\"opacity:1;stroke-opacity:1;fill-opacity:1;stroke:none;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-width:9.99999999736;fill:#ffe900\"/></g><g transform=\"translate(143 -223)\"><rect transform=\"matrix(1.000000,0.000000,0.000000,-1.000000,-225.618670,-204.706720)\" style=\"opacity:1;stroke-opacity:1;fill-opacity:1;stroke:none;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-width:9.99999999736;fill:#6c7793\" id=\"rect4148\" width=\"29.7995\" height=\"89.398499\" x=\"393.54227\" y=\"-517.68945\"/><path style=\"opacity:1;stroke-opacity:1;fill-opacity:1;stroke:none;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-width:9.99999999736;fill:#ffe900\" d=\"M150.24593 331.1655C150.24593 319.52671 156.45515 308.77202 166.53464 302.95262C176.61413 297.13322 189.03257 297.13322 199.11206 302.95262C209.19155 308.77202 215.40077 319.52671 215.40077 331.1655\" id=\"path4144\"/></g><g transform=\"translate(161 69)\"><ellipse ry=\"4.7982244\" rx=\"4.0406103\" cy=\"43.977428\" cx=\"136.87569\" id=\"#lpupil\" style=\"opacity:1;stroke-opacity:1;fill-opacity:1;stroke:none;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-width:9.99999999736;fill:#000000\"/></g><g transform=\"translate(121 69)\"><ellipse style=\"opacity:1;stroke-opacity:1;fill-opacity:1;stroke:none;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-width:9.99999999736;fill:#000000\" id=\"#rpupil\" cx=\"186.37315\" cy=\"43.977428\" rx=\"4.0406103\" ry=\"4.7982244\"/></g>", window.devicePixelRatio || 1, 360, 290);
-var texture_1 = new Texture(atlas, new Rect(0, 167, 163, 122));
-var texture_2 = new Texture(atlas, new Rect(293, 108, 9, 10));
-var texture_3 = new Texture(atlas, new Rect(303, 108, 9, 10));
-var texture_5 = new Texture(atlas, new Rect(164, 167, 66, 107));
-var texture_7 = new Texture(atlas, new Rect(293, 0, 66, 107));
-var texture_8 = new Texture(atlas, new Rect(0, 0, 292, 166));
-function HomeGunnarProjectsPixiSvgAnimRobotSvg() {
-Container.call(this);
-var child_0 = this.head = new Container(); this.addChild(child_0);
-var child_1 = new Sprite(texture_1); child_0.addChild(child_1);
-var child_2 = child_0.lpupil = new Sprite(texture_2); child_0.addChild(child_2);
-var child_3 = child_0.rpupil = new Sprite(texture_3); child_0.addChild(child_3);
-var child_4 = this.lleg = new Container(); this.addChild(child_4);
-var child_5 = new Sprite(texture_5); child_4.addChild(child_5);
-var child_6 = this.rleg = new Container(); this.addChild(child_6);
-var child_7 = new Sprite(texture_7); child_6.addChild(child_7);
-var child_8 = new Sprite(texture_8); this.addChild(child_8);
-
-					child_1.anchor.set(-0.40,0.00);
-child_2.anchor.set(-1.35,0.55);
-child_3.anchor.set(-1.02,0.55);
-child_5.anchor.set(-1.17,-2.08);
-child_7.anchor.set(-2.27,-2.08);
-child_8.anchor.set(0.00,-0.60);
-
-					child_0.position.set(147.01,113.02);
-child_1.position.set(-147.01,-113.02);
-child_2.position.set(-27.17,-68.52);
-child_3.position.set(25.86,-68.52);
-child_4.position.set(110.00,240.13);
-child_5.position.set(-110.00,-240.13);
-child_6.position.set(182.49,237.10);
-child_7.position.set(-182.49,-237.10);
-
-				}
-inherits(HomeGunnarProjectsPixiSvgAnimRobotSvg, Container);module.exports = HomeGunnarProjectsPixiSvgAnimRobotSvg;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(20)))
-
-/***/ }),
-/* 192 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(PIXI) {var BaseTexture = PIXI.BaseTexture;
-
-/**
- * Create base texture from svg content
- * @param	{String}	svg_element_content		Content of the svg
- * @param	{int}		ratio					Resolution
- * @param	{int}		w						Width
- * @param	{int}		h						Height
- * @param	{int?}		x						Position x, default 0
- * @param	{int?}		y						Position y, default 0
- * @return	{BaseTexture}
- */
-function svg2baseTexture(svg_element_content, ratio, w, h, x, y) {
-	x = x || 0;
-	y = y || 0;
-	
-	// Build an image
-	var img = new Image();
-	img.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="'+x+'px" y="'+y+'px" width="'+(w*ratio)+'px" height="'+(h*ratio)+'px" viewBox="'+x+' '+y+' '+w+' '+h+'" xml:space="preserve">'+svg_element_content+'</svg>';
-	
-	// Return a texture
-	return new BaseTexture(img, PIXI.SCALE_MODES.DEFAULT, ratio);
-};
-
-/**
- * Extends the prototype of a class by another one
- * @param	{Function}	subClass
- * @param	{Function}	superClass
- */
-function inherits(subClass, superClass) {
-	subClass.prototype = Object.create(superClass.prototype);
-	subClass.prototype.constructor = subClass;
-};
-
-module.exports = {
-	svg2baseTexture: svg2baseTexture,
-	inherits: inherits
-};
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(20)))
-
-/***/ }),
-/* 193 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(PIXI) {
 class Actor extends PIXI.Container {
 
   update (t, delta) {
@@ -41727,7 +41636,98 @@ class SVGActor extends Actor {
 
 module.exports = { Actor, SVGActor };
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(20)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(16)))
+
+/***/ }),
+/* 192 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(PIXI) {
+		var common = __webpack_require__(193),
+			svg2baseTexture = common.svg2baseTexture,
+			inherits = common.inherits;
+		var Container = PIXI.Container, Sprite = PIXI.Sprite, Texture = PIXI.Texture, Rect = PIXI.Rectangle;var atlas = svg2baseTexture("<defs id=\"defs4\"></defs><g transform=\"translate(0 -100)\"><g id=\"layer1\"><path style=\"opacity:1;stroke-opacity:1;fill-opacity:1;stroke:none;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-width:10.0;fill:#005eff\" d=\"M23.0 100.51264C23.0 100.51264 269.85715 100.51264 269.85715 100.51264C282.59915 100.51264 292.85715 110.77064 292.85715 123.51264C292.85715 123.51264 292.85715 243.22692 292.85715 243.22692C292.85715 255.96892 282.59915 266.22692 269.85715 266.22692C269.85715 266.22692 23.0 266.22692 23.0 266.22692C10.258 266.22692 0.0 255.96892 0.0 243.22692C0.0 243.22692 0.0 123.51264 0.0 123.51264C0.0 110.77064 10.258 100.51264 23.0 100.51264C23.0 100.51264 23.0 100.51264 23.0 100.51264\" id=\"rect4136\"/><circle style=\"opacity:1;stroke-opacity:1;fill-opacity:1;stroke:none;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-width:9.99999999736;fill:#ff0000\" id=\"path4186\" cx=\"34.194756\" cy=\"227.27061\" r=\"13.131983\"/><circle r=\"13.131983\" cy=\"227.27061\" cx=\"69.045006\" id=\"circle4188\" style=\"opacity:1;stroke-opacity:1;fill-opacity:1;stroke:none;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-width:9.99999999736;fill:#ff0000\"/></g></g><g transform=\"translate(-65 167)\"><rect transform=\"matrix(1.000000,0.000000,0.000000,1.000000,0.000000,0.000000)\" y=\"73.878639\" x=\"131.52882\" height=\"48.216602\" width=\"29.7995\" id=\"rect4164\" style=\"opacity:1;stroke-opacity:1;fill-opacity:1;stroke:none;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-width:9.99999999736;fill:#ffff00\"/><path style=\"opacity:1;stroke-opacity:1;fill-opacity:1;stroke:none;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-width:9.99999999736;fill:#005eff\" d=\"M77.92077 0.0C77.92077 0.0 214.93638 0.0 214.93638 0.0C222.00871 0.0 227.70231 5.6936 227.70231 12.76593C227.70231 12.76593 227.70231 79.21215 227.70231 79.21215C227.70231 86.28448 222.00871 91.97808 214.93638 91.97808C214.93638 91.97808 77.92077 91.97808 77.92077 91.97808C70.84844 91.97808 65.15484 86.28448 65.15484 79.21215C65.15484 79.21215 65.15484 12.76593 65.15484 12.76593C65.15484 5.6936 70.84844 0.0 77.92077 0.0C77.92077 0.0 77.92077 0.0 77.92077 0.0\" id=\"path4139\"/><circle r=\"23.486046\" cy=\"43.977428\" cx=\"120.4607\" id=\"path4156\" style=\"opacity:1;stroke-opacity:1;fill-opacity:1;stroke:none;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-width:9.99999999736;fill:#ffffff\"/><circle style=\"opacity:1;stroke-opacity:1;fill-opacity:1;stroke:none;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-width:9.99999999736;fill:#ffffff\" id=\"circle4158\" cx=\"173.49373\" cy=\"43.977428\" r=\"23.486046\"/></g><g transform=\"translate(87 -56)\"><rect transform=\"matrix(1.000000,0.000000,0.000000,1.000000,-225.618670,-204.706720)\" y=\"428.29099\" x=\"320.75272\" height=\"89.398499\" width=\"29.7995\" id=\"rect4146\" style=\"opacity:1;stroke-opacity:1;fill-opacity:1;stroke:none;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-width:9.99999999736;fill:#6c7793\"/><path id=\"path4141\" d=\"M77.45638 331.1655C77.456377 319.52671 83.665599 308.77202 93.74509 302.95262C103.82458 297.13322 116.24302 297.13322 126.32251 302.95262C136.402 308.77202 142.61122 319.52671 142.61122 331.1655\" style=\"opacity:1;stroke-opacity:1;fill-opacity:1;stroke:none;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-width:9.99999999736;fill:#ffe900\"/></g><g transform=\"translate(143 -223)\"><rect transform=\"matrix(1.000000,0.000000,0.000000,-1.000000,-225.618670,-204.706720)\" style=\"opacity:1;stroke-opacity:1;fill-opacity:1;stroke:none;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-width:9.99999999736;fill:#6c7793\" id=\"rect4148\" width=\"29.7995\" height=\"89.398499\" x=\"393.54227\" y=\"-517.68945\"/><path style=\"opacity:1;stroke-opacity:1;fill-opacity:1;stroke:none;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-width:9.99999999736;fill:#ffe900\" d=\"M150.24593 331.1655C150.24593 319.52671 156.45515 308.77202 166.53464 302.95262C176.61413 297.13322 189.03257 297.13322 199.11206 302.95262C209.19155 308.77202 215.40077 319.52671 215.40077 331.1655\" id=\"path4144\"/></g><g transform=\"translate(161 69)\"><ellipse ry=\"4.7982244\" rx=\"4.0406103\" cy=\"43.977428\" cx=\"136.87569\" id=\"#lpupil\" style=\"opacity:1;stroke-opacity:1;fill-opacity:1;stroke:none;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-width:9.99999999736;fill:#000000\"/></g><g transform=\"translate(121 69)\"><ellipse style=\"opacity:1;stroke-opacity:1;fill-opacity:1;stroke:none;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-width:9.99999999736;fill:#000000\" id=\"#rpupil\" cx=\"186.37315\" cy=\"43.977428\" rx=\"4.0406103\" ry=\"4.7982244\"/></g>", window.devicePixelRatio || 1, 360, 290);
+var texture_1 = new Texture(atlas, new Rect(0, 167, 163, 122));
+var texture_2 = new Texture(atlas, new Rect(293, 108, 9, 10));
+var texture_3 = new Texture(atlas, new Rect(303, 108, 9, 10));
+var texture_5 = new Texture(atlas, new Rect(164, 167, 66, 107));
+var texture_7 = new Texture(atlas, new Rect(293, 0, 66, 107));
+var texture_8 = new Texture(atlas, new Rect(0, 0, 292, 166));
+function HomeGunnarProjectsPixiSvgAnimSrcRobotSvg() {
+Container.call(this);
+var child_0 = this.head = new Container(); this.addChild(child_0);
+var child_1 = new Sprite(texture_1); child_0.addChild(child_1);
+var child_2 = child_0.lpupil = new Sprite(texture_2); child_0.addChild(child_2);
+var child_3 = child_0.rpupil = new Sprite(texture_3); child_0.addChild(child_3);
+var child_4 = this.lleg = new Container(); this.addChild(child_4);
+var child_5 = new Sprite(texture_5); child_4.addChild(child_5);
+var child_6 = this.rleg = new Container(); this.addChild(child_6);
+var child_7 = new Sprite(texture_7); child_6.addChild(child_7);
+var child_8 = new Sprite(texture_8); this.addChild(child_8);
+
+					child_1.anchor.set(-0.40,0.00);
+child_2.anchor.set(-1.35,0.55);
+child_3.anchor.set(-1.02,0.55);
+child_5.anchor.set(-1.17,-2.08);
+child_7.anchor.set(-2.27,-2.08);
+child_8.anchor.set(0.00,-0.60);
+
+					child_0.position.set(147.01,113.02);
+child_1.position.set(-147.01,-113.02);
+child_2.position.set(-27.17,-68.52);
+child_3.position.set(25.86,-68.52);
+child_4.position.set(110.00,240.13);
+child_5.position.set(-110.00,-240.13);
+child_6.position.set(182.49,237.10);
+child_7.position.set(-182.49,-237.10);
+
+				}
+inherits(HomeGunnarProjectsPixiSvgAnimSrcRobotSvg, Container);module.exports = HomeGunnarProjectsPixiSvgAnimSrcRobotSvg;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(16)))
+
+/***/ }),
+/* 193 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(PIXI) {var BaseTexture = PIXI.BaseTexture;
+
+/**
+ * Create base texture from svg content
+ * @param	{String}	svg_element_content		Content of the svg
+ * @param	{int}		ratio					Resolution
+ * @param	{int}		w						Width
+ * @param	{int}		h						Height
+ * @param	{int?}		x						Position x, default 0
+ * @param	{int?}		y						Position y, default 0
+ * @return	{BaseTexture}
+ */
+function svg2baseTexture(svg_element_content, ratio, w, h, x, y) {
+	x = x || 0;
+	y = y || 0;
+	
+	// Build an image
+	var img = new Image();
+	img.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="'+x+'px" y="'+y+'px" width="'+(w*ratio)+'px" height="'+(h*ratio)+'px" viewBox="'+x+' '+y+' '+w+' '+h+'" xml:space="preserve">'+svg_element_content+'</svg>';
+	
+	// Return a texture
+	return new BaseTexture(img, PIXI.SCALE_MODES.DEFAULT, ratio);
+};
+
+/**
+ * Extends the prototype of a class by another one
+ * @param	{Function}	subClass
+ * @param	{Function}	superClass
+ */
+function inherits(subClass, superClass) {
+	subClass.prototype = Object.create(superClass.prototype);
+	subClass.prototype.constructor = subClass;
+};
+
+module.exports = {
+	svg2baseTexture: svg2baseTexture,
+	inherits: inherits
+};
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(16)))
 
 /***/ })
 /******/ ]);
