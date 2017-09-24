@@ -41608,7 +41608,46 @@ class Actor extends PIXI.Container {
 const props = [ 'rotation', 'position', 'x', 'y' ];
 
 class SVGActor extends Actor {
+
   constructor(Svg, anim, init) {
+
+    /**
+     * Anim is a nested object containing functions for animating
+     * certain parts.
+     *
+     * Top level is different states, for instance, running, standing,
+     * jumping, etc.  Next levels are either references to attributes
+     * to animate (rotation, position, ...), or to child elements.
+     *
+     * Animation function should return the new value for that
+     * property, and are passed an object with the keys:
+     *
+     * - t (current time in ms)
+     * - state_t (time since current state started)
+     * - delta (elapsed time since last update)
+     * - current (the current value of the property)
+     * - original (the original value of the property, useful for relative movement)
+     *
+     * Example:
+     * {
+     *   idle: {
+     *     head: {
+     *       lpupil: {
+     *         x: ({t, original}) => original+10*Math.sin(t*0.005)-10
+     *       },
+     *       y: ({t, original}) => original+10*Math.sin(t*0.003)
+     *     },
+     *     lleg: {
+     *       rotation: ({t}) => 0.2*Math.sin(t*0.01)
+     *     },
+     *   }
+     * }
+     *
+     * i.e., one idle state, move the head up and down a bit, and the
+     * left pupil side to side. Also rotate the left leg.
+     **/
+
+
     super();
     this.svg = new Svg();
     this.svg.pivot.set(this.svg.width/2, this.svg.height/2);
