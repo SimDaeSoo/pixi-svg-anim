@@ -1,0 +1,26 @@
+{
+  "name": "pixi-svg-anim",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gromgull/pixi-svg-anim.git"
+  },
+  "author": "Gunnar Grimnes <gromgull@gmail.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/gromgull/pixi-svg-anim/issues"
+  },
+  "homepage": "https://github.com/gromgull/pixi-svg-anim#readme",
+  "dependencies": {
+    "pixi.js": "^4.5.6",
+    "pixi-svg-loader": "git://github.com/gromgull/pixi-svg-loader.git#5721afa19f380f804ed99d38fb180ef066d271ae"
+  },
+  "devDependencies": {
+    "webpack": "^3.6.0"
+  }
+}
